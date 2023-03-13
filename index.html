@@ -8,67 +8,82 @@
     <link rel="stylesheet" href="visual.css">
     <title>Buksi</title>
 </head>
+
 <body>
-    <header>
+    <header class="cabecalho">
         <img src="/img/buski-logo-verde 1.png" />
     </header>
-    <script>
-        let nome = window.prompt("Qual o seu nome?");
-        document.write("Olá, " + nome);
-    </script>
-    <article>
-        <p>Vamos checar os seus hábitos de leitura!</p>
-        <p>Você já leu <mark id="elemento_paginas_lidas">10</mark> páginas hoje!</p>
-        <p>Você ainda tem <mark id="elemento_paginas_faltantes">30</mark> páginas
-            pela frente</p>
-        <p>Você já atingiu <mark id="elemento_porcentagem_paginas">25%</mark> da sua meta</p>
-        <section>
-            <img src="/img/ilustração_lendo 1.png" />
-        </section>
-    </article>
 
-    <article>
-        <form>
-            <input id="nome_livro" placeholder="Nome do Livro"/>
-            <input id="autores_livro" placeholder="Nome dos Autores"/>
-            <fieldset>
-                <label for="paginas_lidas">Páginas lidas</label>
-                <br />
-                <input id="paginas_lidas"/>
-            </fieldset>
-            <fieldset>
-                <label for="total_paginas">Total de páginas</label>
-                <br />
-                <input id="total_paginas"/>
-            </fieldset>
-            <button onclick="adicionarLivro(event)">Adicionar o livro</button>
-        </form>
-    </article>
+    <main>
+        <article class="resumo">
+            <header>
+                <div>
+                    <script>
+                        let nome = window.prompt("Qual o seu nome?");
+                        document.write("Olá " + nome);
+                    </script>
+                    <p>Vamos checar os seus hábitos de leitura!</p>
+                </div>
+                <div>
+                    <p class="texto-destaque">Você já leu <mark id="elemento_paginas_lidas">10</mark> páginas hoje!</p>
+                    <p class="texto-destaque">Você ainda tem <mark id="elemento_paginas_faltantes">30</mark> páginas
+                        pela frente</p>
+                </div>
+                <p class="texto-destaque marcado-de-verde">Você já atingiu <mark
+                        id="elemento_porcentagem_paginas">25%</mark> da sua meta</p>
+            </header>
+            <section>
+                <img src="/img/ilustração_lendo 1.png" />
+            </section>
+        </article>
+
+        <article class="formulario">
+            <header>
+                <h1>Adicione um livro a sua biblioteca</h1>
+            </header>
+
+
+            <form>
+                <input id="nome_livro" placeholder="Nome do Livro" />
+                <input id="autores_livro" placeholder="Nome dos Autores" />
+                <fieldset>
+                    <label for="paginas_lidas">Páginas lidas</label>
+                    <br />
+                    <input id="paginas_lidas" />
+                </fieldset>
+                <fieldset>
+                    <label for="total_paginas">Total de páginas</label>
+                    <br />
+                    <input id="total_paginas" />
+                </fieldset>
+                <button onclick="adicionarLivro(event)">Adicionar o livro</button>
+            </form>
+        </article>
+
+        <script>
+            function adicionarLivro(event) {
+                let tituloLivro = document.querySelector("#nome_livro").value;
+                let autoresLivro = document.querySelector("#autores_livro").value;
+                let paginasLidas = document.querySelector("#paginas_lidas").value;
+                let totalPaginas = document.querySelector("#total_paginas").value;
+
+                let elementoPaginasLidas = document.querySelector("#elemento_paginas_lidas");
+                elementoPaginasLidas.innerHTML = paginasLidas;
+
+                let elementoPaginasFaltantes = document.querySelector("#elemento_paginas_faltantes");
+
+                let paginasFaltantes = totalPaginas - paginasLidas;
+                elementoPaginasFaltantes.innerHTML = paginasFaltantes;
+
+                let percentualPaginas = paginasLidas * 100 / totalPaginas;
+                let elementoPorcentagemPaginas = document.querySelector("#elemento_porcentagem_paginas");
+                elementoPorcentagemPaginas.innerHTML = percentualPaginas.toFixed(2) + "%";
+
+                event.preventDefault();
+            }
+
+        </script>
+    </main>
 </body>
-<script>
-    function adicionarLivro(event) {
-        tituloLivro = document.querySelector("#nome_livro").value;
-        console.log(tituloLivro);
-        autoresLivro = document.querySelector("#autores_livro").value;
-        console.log(autoresLivro);
-        paginasLidas = document.querySelector("#paginas_lidas").value;
-        console.log(paginasLidas);
-        totalPaginas = document.querySelector("#total_paginas").value;
-        console.log(totalPaginas);
 
-        let elementoPaginasLidas = document.querySelector("#elemento_paginas_lidas");
-        elementoPaginasLidas.innerHTML = paginasLidas;
-
-        let elementoPaginasFaltantes = document.querySelector("#elemento_paginas_faltantes");
-
-        let paginasFaltantes = totalPaginas - paginasLidas;
-        elementoPaginasFaltantes.innerHTML = paginasFaltantes;
-
-        let percentualPaginas = paginasLidas * 100 / totalPaginas;
-        let elementoPorcentagemPaginas = document.querySelector("#elemento_porcentagem_paginas");
-        elementoPorcentagemPaginas.innerHTML = percentualPaginas.toFixed(2) + "%";
-
-        event.preventDefault();
-    }
-</script>
 </html>
