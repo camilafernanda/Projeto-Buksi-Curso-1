@@ -58,6 +58,15 @@
         let elementoPaginasLidas = document.querySelector("#elemento_paginas_lidas");
         elementoPaginasLidas.innerHTML = paginasLidas;
 
+        let elementoPaginasFaltantes = document.querySelector("#elemento_paginas_faltantes");
+
+        let paginasFaltantes = totalPaginas - paginasLidas;
+        elementoPaginasFaltantes.innerHTML = paginasFaltantes;
+
+        let percentualPaginas = paginasLidas * 100 / totalPaginas;
+        let elementoPorcentagemPaginas = document.querySelector("#elemento_porcentagem_paginas");
+        elementoPorcentagemPaginas.innerHTML = percentualPaginas.toFixed(2) + "%";
+
         event.preventDefault();
     }
 </script>
