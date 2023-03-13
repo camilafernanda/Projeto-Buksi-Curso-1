@@ -7,7 +7,41 @@
     <title>Buksi</title>
 </head>
 <body>
-    <h1>Olá Maria!</h1>
-    <p>Vamos checar os seus hábitos de leitura!</p>
+    <header>
+        <img src="/img/buski-logo-verde 1.png" />
+    </header>
+    <script>
+        let nome = window.prompt("Qual o seu nome?");
+        document.write("Olá " + nome);
+    </script>
+
+    <article>
+            <p>Vamos checar os seus hábitos de leitura!</p>
+            <p>Você já leu <mark>10</mark> páginas hoje!</p>
+            <p>Você ainda tem <mark>30</mark> páginas
+                pela frente</p>
+            <p>Você já atingiu <mark>25%</mark> da sua meta</p>
+        <section>
+            <img src="/img/ilustração_lendo 1.png" />
+        </section>
+    </article>
+
+    <article>
+        <form>
+            <input placeholder="Nome do Livro" />
+            <input placeholder="Nome dos Autores" />
+            <fieldset>
+                <label for="paginas_lidas">Páginas lidas</label>
+                <br />
+                <input id="paginas_lidas" />
+            </fieldset>
+            <fieldset>
+                <label for="total_paginas">Total de páginas</label>
+                <br />
+                <input id="total_paginas" />
+            </fieldset>
+            <button>Adicionar o livro</button>
+        </form>
+    </article>
 </body>
 </html>
